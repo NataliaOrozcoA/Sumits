@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    <head runay="server">
+        <title>Next Prime Number</title>
+        <script type="text/javascript">
+
+            function isPrime(num){
+                for(var i = 2 ; i < num; i++){
+                    if (num % i === 0){
+                        return true;
+                    } else if (num === i*i){
+                        return false;
+                    } else{
+                        return false;
+                    }
+                }
+            }
+            
+            function checkPrime(){
+                var id = document.getElementById("num");
+                var number = parseInt(id.value);
+                var maxNUM = parseInt(1299827);
+                if ( number < maxNUM &&  !isNaN(number)){
+                    for (var i = number + 1 ; i < maxNUM ; i++){
+                        //TODO: check if the current number is a prime or not
+                        // If it is, then return it
+                        window.alert(i);
+                        if (isPrime(i)){
+                            var item = document.createElement("li");
+                            item.innerHTML = ("The next prime number after " + number + " is " + i);
+                            document.getElementById("result").appendChild(item);
+                            break;
+                        }
+                    }
+                } else {
+                    window.alert("Pleas Enter a Number below 1299827 or enter a valid integrer");
+                    id.value="";
+                }
+            }
+
+           
+        </script>
+    </head>
+
+      
+    <body>
+        <form id="formal" runat="server">
+            <div>
+                <input type="text" id="num"/>
+                <button id="btn" onclick="checkPrime(); return false">
+                    Click to get next prime Number
+                </button><br/>
+                <ol id="result"></ol>
+            </div>
+        </form>
+    </body>
+</html>
